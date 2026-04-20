@@ -182,6 +182,97 @@
         .method-card:hover .card-topsis .btn { background: var(--accent-blue); color: white; }
         .method-card:hover .card-mrp .btn { background: var(--accent-teal); color: white; }
 
+        /* PDF BUTTONS STYLES */
+        .btn-pdf:hover {
+            background: rgba(255,255,255,0.2) !important;
+            transform: translateY(-2px);
+        }
+
+        /* DEFENSE SECTION STYLES */
+        .defense-container {
+            width: 100%;
+            max-width: 1000px;
+            background: white;
+            border-radius: 16px;
+            padding: 50px;
+            margin-top: 80px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            color: var(--text-primary);
+        }
+
+        .defense-container h2 {
+            font-size: 2rem;
+            color: var(--navy);
+            text-align: center;
+            margin-bottom: 30px;
+            letter-spacing: -0.5px;
+        }
+
+        .thesis-box {
+            background: var(--light-bg);
+            border-left: 5px solid var(--navy);
+            padding: 25px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 40px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        .axis-card {
+            border: 1px solid #e1e4e8;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .axis-card h3 {
+            font-size: 1.2rem;
+            color: var(--navy);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #e1e4e8;
+            padding-bottom: 10px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 800px) {
+            .comparison-grid { grid-template-columns: 1fr; }
+        }
+
+        .comp-box {
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+
+        .comp-discarded { background: #fdf2f2; border: 1px solid #fadbd8; }
+        .comp-chosen { background: #f4fbf5; border: 1px solid #d4efdf; }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .badge-discarded { background: #922b21; color: white; }
+        .badge-chosen { background: #1e8449; color: white; }
+
+        .comp-box ul { list-style: none; margin-top: 12px; }
+        .comp-box ul li { margin-bottom: 12px; color: var(--text-secondary); position: relative; padding-left: 45px; line-height: 1.5; }
+        
+        .comp-discarded ul li::before { content: "[ - ]"; position: absolute; left: 0; top: 0; color: #922b21; font-family: monospace; font-weight: bold; }
+        .comp-chosen ul li::before { content: "[ + ]"; position: absolute; left: 0; top: 0; color: #1e8449; font-family: monospace; font-weight: bold; }
+
         footer {
             margin-top: 60px;
             color: rgba(255,255,255,0.5);
@@ -190,24 +281,6 @@
         }
     </style>
 </head>
-<div style="margin-top: 50px; display: flex; gap: 20px; justify-content: center; width: 100%; max-width: 1000px; flex-wrap: wrap;">
-    
-    <a href="SONYA_TOPSIS.pdf" target="_blank" class="btn-pdf" style="text-decoration: none; background: rgba(255,255,255,0.1); color: white; padding: 12px 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.3); font-size: 0.9rem; display: flex; align-items: center; transition: 0.3s;">
-        <span style="margin-right: 10px;">📄</span> Informe Técnico TOPSIS (PDF)
-    </a>
-
-    <a href="SONYA_MRP_.pdf" target="_blank" class="btn-pdf" style="text-decoration: none; background: rgba(255,255,255,0.1); color: white; padding: 12px 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.3); font-size: 0.9rem; display: flex; align-items: center; transition: 0.3s;">
-        <span style="margin-right: 10px;">📄</span> Informe Técnico MRP (PDF)
-    </a>
-
-</div>
-
-<style>
-    .btn-pdf:hover {
-        background: rgba(255,255,255,0.2) !important;
-        transform: translateY(-2px);
-    }
-</style>
 <body>
 
     <div class="header">
@@ -246,6 +319,90 @@
             </div>
         </a>
 
+    </div>
+
+    <div style="margin-top: 50px; display: flex; gap: 20px; justify-content: center; width: 100%; max-width: 1000px; flex-wrap: wrap;">
+        <a href="SONYA_TOPSIS.pdf" target="_blank" class="btn-pdf" style="text-decoration: none; background: rgba(255,255,255,0.1); color: white; padding: 12px 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.3); font-size: 0.9rem; display: flex; align-items: center; transition: 0.3s;">
+            <span style="margin-right: 10px;">📄</span> Informe Técnico TOPSIS (PDF)
+        </a>
+
+        <a href="SONYA_MRP_.pdf" target="_blank" class="btn-pdf" style="text-decoration: none; background: rgba(255,255,255,0.1); color: white; padding: 12px 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.3); font-size: 0.9rem; display: flex; align-items: center; transition: 0.3s;">
+            <span style="margin-right: 10px;">📄</span> Informe Técnico MRP (PDF)
+        </a>
+    </div>
+
+    <div class="defense-container">
+        <h2>Justificación Técnica de la Metodología</h2>
+        
+        
+
+        <div class="axis-card">
+            <h3>I. Asignación de Ponderaciones</h3>
+            <div class="comparison-grid">
+                <div class="comp-box comp-discarded">
+                    <span class="badge badge-discarded">Métodos Descartados: AHP / EBW</span>
+                    <p>Enfoques dependientes del juicio de expertos.</p>
+                    <ul>
+                        <li>Vulnerabilidad ante sesgos cognitivos en las encuestas.</li>
+                        <li>Dificultad operativa al requerir comparaciones manuales constantes.</li>
+                        <li>Falta de escalabilidad si cambian los parámetros del problema.</li>
+                    </ul>
+                </div>
+                <div class="comp-box comp-chosen">
+                    <span class="badge badge-chosen">Decisión Técnica: CRITIC</span>
+                    <p>Ponderación puramente objetiva y automatizable.</p>
+                    <ul>
+                        <li>Extrae la importancia basándose en la varianza de los datos.</li>
+                        <li>Penaliza métricas redundantes usando la correlación de Pearson.</li>
+                        <li>Garantiza imparcialidad total en el tratamiento de los indicadores.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="axis-card">
+            <h3>II. Ordenación en Entornos Digitales (Caso I)</h3>
+            <div class="comparison-grid">
+                <div class="comp-box comp-discarded">
+                    <span class="badge badge-discarded">Métodos Descartados: TOPSIS Euclídeo</span>
+                    <p>Evaluación basada en promedios geométricos.</p>
+                    <ul>
+                        <li>Permite la compensación de criterios críticos.</li>
+                        <li>Una alternativa económica puede enmascarar una alta tasa de emisiones.</li>
+                    </ul>
+                </div>
+                <div class="comp-box comp-chosen">
+                    <span class="badge badge-chosen">Decisión Técnica: TOPSIS Chebyshev</span>
+                    <p>Distancia Minimax orientada a la seguridad.</p>
+                    <ul>
+                        <li>Evalúa la alternativa por su desviación más severa (peor atributo).</li>
+                        <li>Asegura que las soluciones situadas en los primeros puestos sean equilibradas.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="axis-card">
+            <h3>III. Simulación Logística y Líneas Rojas (Caso II)</h3>
+            <div class="comparison-grid">
+                <div class="comp-box comp-discarded">
+                    <span class="badge badge-discarded">Métodos Descartados: PROMETHEE / VIKOR</span>
+                    <p>Modelos de superación relativa.</p>
+                    <ul>
+                        <li>Clasifican las alternativas según cuál es mejor que otra.</li>
+                        <li>Carecen de mecanismos para definir umbrales de colapso del sistema.</li>
+                    </ul>
+                </div>
+                <div class="comp-box comp-chosen">
+                    <span class="badge badge-chosen">Decisión Técnica: MRP + Veto</span>
+                    <p>Operador de Leontief sobre umbrales físicos.</p>
+                    <ul>
+                        <li>Establece niveles de referencia exactos e innegociables.</li>
+                        <li>Aplica un veto matemático (puntuación cero) si la alternativa no alcanza el nivel de reserva en cualquier eje.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
 </body>

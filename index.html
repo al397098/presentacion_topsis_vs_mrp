@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SONYA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+        }
+
+        :root {
+            --navy: #001a33;
+            --slate: #2d3e50;
+            --accent-blue: #0066cc;
+            --accent-teal: #00a8a8;
+            --light-bg: #f8f9fa;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--slate) 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .cards-container {
+            display: flex;
+            gap: 40px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .cards-container {
+                flex-direction: column;
+            }
+        }
+
+        /* CARD STYLES */
+        .method-card {
+            background: white;
+            flex: 1;
+            border-radius: 16px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            animation: fadeUp 0.8s ease-out backwards;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .method-card:nth-child(1) { animation-delay: 0.1s; }
+        .method-card:nth-child(2) { animation-delay: 0.3s; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .method-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+
+        .card-header {
+            padding: 40px 30px;
+            color: white;
+            position: relative;
+        }
+
+        .card-topsis .card-header {
+            background: linear-gradient(135deg, var(--accent-blue) 0%, #004080 100%);
+        }
+
+        .card-mrp .card-header {
+            background: linear-gradient(135deg, var(--accent-teal) 0%, #006666 100%);
+        }
+
+        .card-header h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .card-header p {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .card-body {
+            padding: 40px 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        .feature-list li {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .feature-list li::before {
+            content: '→';
+            color: var(--navy);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 16px;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.3s;
+        }
+
+        .card-topsis .btn {
+            background: rgba(0, 102, 204, 0.1);
+            color: var(--accent-blue);
+        }
+
+        .card-mrp .btn {
+            background: rgba(0, 168, 168, 0.1);
+            color: var(--accent-teal);
+        }
+
+        .method-card:hover .card-topsis .btn { background: var(--accent-blue); color: white; }
+        .method-card:hover .card-mrp .btn { background: var(--accent-teal); color: white; }
+
+        footer {
+            margin-top: 60px;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>SONYA</h1>
+        <p>Plataforma de Evaluación Multicriterio. Seleccione el motor matemático para explorar los escenarios de simulación.</p>
+    </div>
+
+    <div class="cards-container">
+        
+        <a href="presentacion_topsis.html" class="method-card card-topsis">
+            <div class="card-header">
+                <h2>Modelo TOPSIS</h2>
+                <p>Distancia Geométrica (Chebyshev)</p>
+            </div>
+            <div class="card-body">
+                <ul class="feature-list">
+                    <li>Normalización Vectorial y Pesos CRITIC.</li>
+                    <li>Métrica Minimax para Sostenibilidad Fuerte.</li>
+                    <li>Ideal para identificar la solución con la menor brecha hacia la perfección absoluta.</li>
+                </ul>
+                <div class="btn">Explorar TOPSIS</div>
+            </div>
+        </a>
+
+        <a href="presentacion_mrp.html" class="method-card card-mrp">
+            <div class="card-header">
+                <h2>Modelo MRP</h2>
+                <p>Multi-Reference Point (Leontief)</p>
+            </div>
+            <div class="card-body">
+                <ul class="feature-list">
+                    <li>Interpolación por tramos percentiles.</li>
+                    <li>Escala universal de satisfacción ($\alpha$).</li>
+                    <li>Operador de Veto Estricto: evalúa el sistema por su eslabón más débil.</li>
+                </ul>
+                <div class="btn">Explorar MRP</div>
+            </div>
+        </a>
+
+    </div>
+
+</body>
+</html>
